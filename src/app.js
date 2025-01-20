@@ -2,7 +2,14 @@ const express = require("express");
 const connectDB = require("./config/database");
 const cookieParser = require("cookie-parser");
 const app = express();
+const cors = require("cors");
 
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 app.use(express.json()); // To read the json data to server that's why ussing middleware
 app.use(cookieParser());
 
